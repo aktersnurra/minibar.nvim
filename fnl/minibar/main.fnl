@@ -29,6 +29,7 @@
 (fn get-winbar []
   (if (and (not= (ignore) true) (not= (is-empty (get-filetype)) true))
       (do
+        (print (get-filetype))
         (print (vim.inspect ignore-filetypes))
         (vim.api.nvim_set_option_value :winbar (.. " " "%t%m") {:scope :local}))
       (vim.api.nvim_set_option_value :winbar "" {:scope :local})))

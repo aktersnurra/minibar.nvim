@@ -27,7 +27,7 @@ local function ignore()
 end
 local function get_winbar()
   if ((ignore() ~= true) and (is_empty(get_filetype()) ~= true)) then
-    print(ignore_filetypes)
+    print(vim.inspect(ignore_filetypes))
     return vim.api.nvim_set_option_value("winbar", (" " .. "%t%m"), {scope = "local"})
   else
     return vim.api.nvim_set_option_value("winbar", "", {scope = "local"})

@@ -12,8 +12,7 @@
                     :NeogitCommitMessage
                     :NeogitNotification
                     :spectre_panel]
- :events [:BufEnter
-          :CursorMoved
+ :events [:CursorMoved
           :CursorHold
           :BufWinEnter
           :BufFilePost

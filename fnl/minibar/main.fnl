@@ -11,8 +11,7 @@
       (tset tbl v true))
     tbl))
 
-(local events (let [events (. opts :events)]
-                (concat events)))
+(local events (. opts :events))
 
 (local ignore-filetypes
        (let [ignore-filetypes (. opts :ignore-filetypes)]
@@ -32,6 +31,6 @@
       (vim.api.nvim_set_option_value :winbar (.. " " "%t%m") {:scope :local})
       (vim.api.nvim_set_option_value :winbar "" {:scope :local})))
 
-(nvim.create_autocmd events
+(vim.api.nvim_create_autocmd events
                      {:callback (lambda []
                                   (get-winbar))})

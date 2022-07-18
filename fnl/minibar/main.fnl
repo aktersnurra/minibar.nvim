@@ -30,9 +30,10 @@
   (. ignore-filetypes (get-filetype)))
 
 (fn get-winbar []
-  (if (or (not= (ignore) true) (not= (is-empty (get-filename)) true))
+  (if (and (not= (ignore) true) (not= (is-empty (get-filename)) true))
       (vim.api.nvim_set_option_value :winbar (.. " " "%t%m") {:scope :local})
-      (vim.api.nvim_set_option_value :winbar "" {:scope :local})))
+      ;; (vim.api.nvim_set_option_value :winbar "" {:scope :local})
+      ))
 
 (vim.api.nvim_create_autocmd events
                              {:callback (lambda []

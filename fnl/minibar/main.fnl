@@ -23,11 +23,14 @@
 (fn get-filetype []
   vim.bo.filetype)
 
+(fn get-filename []
+  (vim.fn.expand "%:t"))
+
 (fn ignore []
   (. ignore-filetypes (get-filetype)))
 
 (fn get-winbar []
-  (if (and (not= (ignore) true) (not= (is-empty (get-filetype)) true))
+  (if (and (not= (ignore) true) (not= (is-empty (get-filename)) true))
       (do
         (print (get-filetype))
         (print (vim.inspect ignore-filetypes))

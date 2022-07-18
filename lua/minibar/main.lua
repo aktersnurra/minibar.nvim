@@ -1,14 +1,4 @@
 local opts = require("minibar.opts")
-local function concat(tbl)
-  return table.concat(tbl, ",")
-end
-local function create_general_table(seq_tbl)
-  local tbl = {}
-  for _, v in ipairs(seq_tbl) do
-    tbl[v] = true
-  end
-  return tbl
-end
 local events = opts.events
 local ignore_filetypes = opts["ignore-filetypes"]
 local function is_empty(arg)
@@ -25,8 +15,6 @@ local function ignore()
 end
 local function get_winbar()
   if ((ignore() ~= true) and (is_empty(get_filename()) == false)) then
-    print(ignore())
-    print(get_filename())
     return vim.api.nvim_set_option_value("winbar", (" " .. "%t%m"), {scope = "local"})
   else
     vim.opt_local.winbar = nil

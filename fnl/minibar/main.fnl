@@ -13,9 +13,7 @@
 
 (local events (. opts :events))
 
-(local ignore-filetypes (let [ignore-filetypes (. opts :ignore-filetypes)]
-                          (create-general-table ignore-filetypes)
-                          ignore-filetypes))
+(local ignore-filetypes (. opts :ignore-filetypes))
 
 (fn is-empty [arg]
   (or (= arg nil) (= arg "")))
@@ -27,13 +25,15 @@
   (vim.fn.expand "%:t"))
 
 (fn ignore []
-  (. ignore-filetypes (get-filetype)))
+  (vim.tbl_contains ignore-filetypes (get-filetype)))
 
 (fn get-winbar []
-  (if (and (not= (ignore) true) (not= (is-empty (get-filename)) true))
-    (do (print (ignore))
+  (if (and (not= (ignore) true) (= (is-empty (get-filename)) false))
+      (do
+        (print (ignore))
         (print (get-filename))
-      (vim.api.nvim_set_option_value :winbar (.. " " "%t%m") {:scope :local}))
+        (vim.api.nvim_set_option_value :winbar (.. " " "%t%m") {:scope :local}))
+      (vim.opt_local.winbar nil)
       ;; (vim.api.nvim_set_option_value :winbar "" {:scope :local})
       ))
 

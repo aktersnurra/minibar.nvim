@@ -10,12 +10,7 @@ local function create_general_table(seq_tbl)
   return tbl
 end
 local events = opts.events
-local ignore_filetypes
-do
-  local ignore_filetypes0 = opts["ignore-filetypes"]
-  create_general_table(ignore_filetypes0)
-  ignore_filetypes = ignore_filetypes0
-end
+local ignore_filetypes = opts["ignore-filetypes"]
 local function is_empty(arg)
   return ((arg == nil) or (arg == ""))
 end
@@ -26,15 +21,15 @@ local function get_filename()
   return vim.fn.expand("%:t")
 end
 local function ignore()
-  return ignore_filetypes[get_filetype()]
+  return vim.tbl_contains(ignore_filetypes, get_filetype())
 end
 local function get_winbar()
-  if ((ignore() ~= true) and (is_empty(get_filename()) ~= true)) then
+  if ((ignore() ~= true) and (is_empty(get_filename()) == false)) then
     print(ignore())
     print(get_filename())
     return vim.api.nvim_set_option_value("winbar", (" " .. "%t%m"), {scope = "local"})
   else
-    return nil
+    return vim.opt_local.winbar(nil)
   end
 end
 local function _2_()

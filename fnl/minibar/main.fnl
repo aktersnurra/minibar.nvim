@@ -33,7 +33,7 @@
         (print (ignore))
         (print (get-filename))
         (vim.api.nvim_set_option_value :winbar (.. " " "%t%m") {:scope :local}))
-      (vim.opt_local.winbar nil)
+      (set vim.opt_local.winbar nil)
       ;; (vim.api.nvim_set_option_value :winbar "" {:scope :local})
       ))
 

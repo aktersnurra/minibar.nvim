@@ -29,7 +29,8 @@ local function get_winbar()
     print(get_filename())
     return vim.api.nvim_set_option_value("winbar", (" " .. "%t%m"), {scope = "local"})
   else
-    return vim.opt_local.winbar(nil)
+    vim.opt_local.winbar = nil
+    return nil
   end
 end
 local function _2_()

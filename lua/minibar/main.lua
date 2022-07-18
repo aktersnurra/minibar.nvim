@@ -13,7 +13,8 @@ local events = opts.events
 local ignore_filetypes
 do
   local ignore_filetypes0 = opts["ignore-filetypes"]
-  ignore_filetypes = create_general_table(ignore_filetypes0)
+  create_general_table(ignore_filetypes0)
+  ignore_filetypes = ignore_filetypes0
 end
 local function is_empty(arg)
   return ((arg == nil) or (arg == ""))
@@ -26,6 +27,7 @@ local function ignore()
 end
 local function get_winbar()
   if ((ignore() ~= true) and (is_empty(get_filetype()) ~= true)) then
+    print(ignore_filetypes)
     return vim.api.nvim_set_option_value("winbar", (" " .. "%t%m"), {scope = "local"})
   else
     return vim.api.nvim_set_option_value("winbar", "", {scope = "local"})

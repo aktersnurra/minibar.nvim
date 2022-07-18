@@ -9,11 +9,7 @@ local function create_general_table(seq_tbl)
   end
   return tbl
 end
-local events
-do
-  local events0 = opts.events
-  events = concat(events0)
-end
+local events = opts.events
 local ignore_filetypes
 do
   local ignore_filetypes0 = opts["ignore-filetypes"]
@@ -38,4 +34,4 @@ end
 local function _2_()
   return get_winbar()
 end
-return nvim.create_autocmd(events, {callback = _2_})
+return vim.api.nvim_create_autocmd(events, {callback = _2_})

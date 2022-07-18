@@ -14,5 +14,6 @@ lua/minibar/:
 
 clean:
 	rm -rf lua
+	mkdir -p lua/minibar/
 
 .PHONY: clean compile

@@ -3,7 +3,6 @@
 (fn setup [user-opts]
   (each [k v (pairs user-opts)]
     (tset (require :minibar.opts) k v))
-  ;; (require :minibar.main))
-  )
+  (require :minibar.main))
 
 {: setup}

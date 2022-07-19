@@ -2,16 +2,10 @@
                     :startify
                     :dashboard
                     :packer
-                    :neogitstatus
                     :NvimTree
                     :Trouble
                     :alpha
-                    :lir
-                    :Outline
-                    :NeogitStatus
-                    :NeogitCommitMessage
-                    :NeogitNotification
-                    :spectre_panel]
+                    :Outline]
  :events [:CursorMoved
           :CursorHold
           :BufWinEnter

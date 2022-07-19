@@ -6,7 +6,7 @@ A minimalistic winbar.
 
 You can specify which filetypes to ignore and what events to trigger the
 winbar on, e.g.:
-```
+```lua
 
   require("minibar").setup {
     ignore-filetypes = {"help",

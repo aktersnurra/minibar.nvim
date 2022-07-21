@@ -19,7 +19,7 @@
   (vim.tbl_contains ignore-filetypes (get-filetype)))
 
 (fn get-winbar []
-  (if (and (not= (ignore) true) (= (is-empty (get-filename)) false))
+  (if (or (not= (ignore) true) (= (is-empty (get-filename)) false))
       (do
         (print (get-filename))
         (print (get-filetype))

@@ -33,4 +33,3 @@ winbar on, e.g.:
                     "TabClosed"}
   }
 ```
-tbc

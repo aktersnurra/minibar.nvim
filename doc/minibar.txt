@@ -1,0 +1,45 @@
+minibar.txt
+
+================================================================================
+CONTENTS                                                        *minibar-contents*
+
+1. minibar.nvim.............................................|minibar-minibar.nvim|
+2. Configuration...........................................|minibar-configuration|
+
+================================================================================
+MINIBAR.NVIM                                                *minibar-minibar.nvim*
+
+A minimalistic winbar.
+
+================================================================================
+CONFIGURATION                                              *minibar-configuration*
+
+You can specify which filetypes to ignore and what events to trigger the
+winbar on, e.g.:
+>
+      require("minibar").setup {
+        ["ignore-filetypes"] = {"help",
+                                "startify",
+                                "dashboard",
+                                "packer",
+                                "neogitstatus",
+                                "NvimTree",
+                                "Trouble",
+                                "alpha",
+                                "lir",
+                                "Outline",
+                                "NeogitStatus",
+                                "NeogitCommitMessage",
+                                "NeogitNotification",
+                                "NeogitCommitView",
+                                "spectre_panel"}
+          ["events"] = {"CursorMoved",
+                        "CursorHold",
+                        "BufWinEnter",
+                        "BufFilePost",
+                        "InsertEnter",
+                        "BufWritePost",
+                        "TabClosed"}
+      }
+<
+
